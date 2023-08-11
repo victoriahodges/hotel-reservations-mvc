@@ -1,10 +1,8 @@
-package hotel.reservations.controllers;
+package hotel.reservations.hotel.controllers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.ui.Model;
 import org.springframework.validation.support.BindingAwareModelMap;
-
-import hotel.reservations.hotel.controllers.HotelController;
 
 import static org.junit.jupiter.api.Assertions.*;
 
