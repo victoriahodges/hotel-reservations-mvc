@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HotelController {
     
-    @GetMapping("/hello") // http://localhost:8080/index?name=Victoria
+    @GetMapping("/hello") // http://localhost:8080/hello?name=Victoria
     public String hello(
         @RequestParam(name="name", required=false, 
                 defaultValue="World") String name, Model model) {
