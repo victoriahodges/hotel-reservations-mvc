@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import hotel.reservations.hotel.json.Greeting;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class HotelApplicationTests {
@@ -27,6 +26,16 @@ class HotelApplicationTests {
 	void noGreetingBeanInAppCtx() {
 		assertThrows(NoSuchBeanDefinitionException.class, 
 			() -> context.getBean(Greeting.class));
+	}
+
+	@Test
+	void getBeanTwice() {
+		// Give bean name in context.getBean() to resolve UniqueBeanDefinitionException
+		Greeting g1 = context.getBean("defaultGreeting", Greeting.class);
+		Greeting g2 = context.getBean("defaultGreeting", Greeting.class);
+		assertSame(g1, g2);
+		System.out.println(g1);
+		System.out.println(g2);
 	}
 
 }
